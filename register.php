@@ -1,17 +1,12 @@
 <?php
 session_start();
-include("php/sql.php");
-if(isset($_POST["username"]) && $_POST["username"] !== "" && isset($_POST["password"]) && $_POST["password"] !== "" && isset($_POST["submit"])){
-	$MySql->login($_POST["username"], $_POST["password"]);
+if(isset($_POST["submit"]) && isset($_POST["username"])
+	&& isset($_POST["password"]) && isset($_POST["repeatPassword"]) 
+	&& isset($_POST["email"]) && $_POST["username"] !== "" 
+	&& $_POST["password"] !== "" && $_POST["repeatPassword"] !== "" 
+	&& $_POST["email"] !== ""){
+	
 }
-if(isset($_SESSION["login"]) && $_SESSION["login"]){
-	header("Location: main.php");
-}
-
-if(isset($_SESSION["ERROR"]) && $_SESSION["ERROR"] == md5(0)) {
-	$error = "You entered an invalid password or the given user does not exist.";
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -35,23 +30,25 @@ if(isset($_SESSION["ERROR"]) && $_SESSION["ERROR"] == md5(0)) {
                         <li><a href="#">nav ul li a</a></li>
                         <li><a href="#">nav ul li a</a></li>
                         <li><a href="#">nav ul li a</a></li>
-                    </ul>	
+                    </ul>
                 </nav>
             </header>
         </div>
 
         <div class="main-container">
             <div class="main wrapper clearfix">
-				<?php if(isset($error) && $error !== ""){echo "<p id='errorMessage'>" . $error . "</p>"; unset($_SESSION); session_destroy();} ?>
-                <form action="" id="loginForm" method="POST">
+                <form action="index.php" id="registerForm" method="POST">
 					<label class="formLabel" for="un">Username:</label>
                     <input  class="formInput"type="text" name="username" id="un">
 					<label class="formLabel" for="pw">Password:</label>
                     <input class="formInput" type="password" name="password" id="pw">
+					<label class="formLabel" for="pw2">Repeat password:</label>
+                    <input class="formInput" type="password" name="repeatPassword" id="pw2">
+					<label class="formLabel" for="em">Email:</label>
+                    <input class="formInput" type="email" name="email" id="em">
 					<input class="formInput" class="formLabel" type="submit" id="submit" name="submit">
-					<span>Don't have an account? <a href="register.php">Sign up</a> here!</span>
+					<span>Already have an Account? <a href="index.php">Log in</a> here!</span>
                 </form>
-
             </div> <!-- #main -->
         </div> <!-- #main-container -->
 

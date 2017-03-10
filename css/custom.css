@@ -1,0 +1,21 @@
+.formInput{
+	display: block;
+	width: 100%;
+}
+
+#loginForm, #registerForm{
+	width: 50%;
+	margin-left: 25%;
+	margin-top: 5%;
+}
+
+.footer-container{
+	position: absolute;
+	bottom: 0;
+	width: 100vw;
+}
+
+#submit{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
