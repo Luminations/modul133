@@ -53,15 +53,18 @@ Class Sql{
 //Function that checks the connection to the database. If there where no Issues found it returns true.
 //Error messages get thrown into $_SESSION["ERROR"]
 	public function connectionCheck (){
-//No Issues
 		$var = true;
+//check if there where any errors recordet
 		if($this->connection->connect_error){
+//set the return value to false
 			$var = false;
+//set the ERROR session to the error.
 			$this->setSession("ERROR", $this->connection->connect_error);
 		}
+//return if there where any errors
 		return $var;
 	}
-	
+//close connection	
 	private function connectionClose(){
 		$connection->close();
 	}
