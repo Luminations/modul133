@@ -1,5 +1,6 @@
 <?php
-$MySql = new Sql('localhost', 'root', "", "modul133");
+include("connection.php");
+$MySql = new Sql($servern, $usern, $pass, $datab);
 Class Sql{
 	 public $servername = "";
 	 public $username = "";
@@ -16,6 +17,25 @@ Class Sql{
 		$this->database = $db;
 	}
 	
+	public function register($username, $password, $mail){
+//safe parameters into array for later use
+		$escapeString = [$username, $password, $mail];
+//Hand over user input into escape function [Line: ]
+		$data = $this->escapeString($escapeString);
+//Use escaped user input to check if the entered input matches any entry in the database
+		$occupied = $this->connection->query("SELECT userid FROM users WHERE username = '" . $data[0] ."' AND email='" . $data[2] . "';");
+		if($occupied->num_rows > 0){
+			$this->setSession("ERROR", "The username or email adress is already taken");
+		} else {
+			$succ = $this->connection->query("INSERT INTO users(username, passwordhash, email) VALUES ('" . $data[0] . "', '" . $data[1] . "', '" . $data[2] . "')");
+		}
+		if($succ){
+			echo "yo";
+		} else{
+			echo "no";
+		}
+	}
+	
 //User login form: index.php
 	public function login($username, $password){
 //safe parameters into array for later use
@@ -29,7 +49,7 @@ Class Sql{
 			$value = ["login", $result->fetch_assoc()["userid"]];
 		} else {
 //If there where no matches at all the final variable gets set to 0
-			$value = ["ERROR", md5(0)];;
+			$value = ["ERROR", "You entered an invalid password or the given user does not exist."];;
 		}
 //Hand the result over to the setSession function [Line: ]
 		$this->setSession($value[0], $value[1]);
@@ -64,6 +84,12 @@ Class Sql{
 //return if there where any errors
 		return $var;
 	}
+	
+//redirect function
+	public function redirectUser($url){
+		header("Location: " . $url);
+	}
+	
 //close connection	
 	private function connectionClose(){
 		$connection->close();

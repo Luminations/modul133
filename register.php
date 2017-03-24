@@ -1,11 +1,22 @@
 <?php
 session_start();
+include("php/sql.php");
 if(isset($_POST["submit"]) && isset($_POST["username"])
 	&& isset($_POST["password"]) && isset($_POST["repeatPassword"]) 
 	&& isset($_POST["email"]) && $_POST["username"] !== "" 
 	&& $_POST["password"] !== "" && $_POST["repeatPassword"] !== "" 
 	&& $_POST["email"] !== ""){
+	if($_POST["password"] == $_POST["repeatPassword"]){
+		$MySql->register($_POST["username"], md5($_POST["password"]), $_POST["email"]);
+	} else {
+		$error = "Passwords do not match";
+	}
 	
+}
+
+if(isset($_SESSION["ERROR"]) AND $_SESSION["ERROR"] !== ""){
+	$error = $_SESSION["ERROR"];
+	$_SESSION["ERROR"] = "";
 }
 ?>
 
@@ -37,7 +48,8 @@ if(isset($_POST["submit"]) && isset($_POST["username"])
 
         <div class="main-container">
             <div class="main wrapper clearfix">
-                <form action="index.php" id="registerForm" method="POST">
+				<?php if(isset($error) && $error !== ""){echo "<p id='errorMessage'>" . $error . "</p>";} ?>
+                <form action="" id="registerForm" method="POST">
 					<label class="formLabel" for="un">Username:</label>
                     <input  class="formInput"type="text" name="username" id="un">
 					<label class="formLabel" for="pw">Password:</label>

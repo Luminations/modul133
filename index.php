@@ -8,8 +8,9 @@ if(isset($_SESSION["login"]) && $_SESSION["login"]){
 	header("Location: main.php");
 }
 
-if(isset($_SESSION["ERROR"]) && $_SESSION["ERROR"] == md5(0)) {
-	$error = "You entered an invalid password or the given user does not exist.";
+if(isset($_SESSION["ERROR"]) AND $_SESSION["ERROR"] !== ""){
+	$error = $_SESSION["ERROR"];
+	$_SESSION["ERROR"] = "";
 }
 
 ?>
@@ -42,7 +43,7 @@ if(isset($_SESSION["ERROR"]) && $_SESSION["ERROR"] == md5(0)) {
 
         <div class="main-container">
             <div class="main wrapper clearfix">
-				<?php if(isset($error) && $error !== ""){echo "<p id='errorMessage'>" . $error . "</p>"; unset($_SESSION); session_destroy();} ?>
+				<?php if(isset($error) && $error !== ""){echo "<p id='errorMessage'>" . $error . "</p>";} ?>
                 <form action="" id="loginForm" method="POST">
 					<label class="formLabel" for="un">Username:</label>
                     <input  class="formInput"type="text" name="username" id="un">
