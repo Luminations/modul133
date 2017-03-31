@@ -18,6 +18,7 @@ if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
         <link rel="stylesheet" href="css/custom.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/normalize.min.css">
+		<link rel="stylesheet" href="css/video-js.css">
     </head>
     <body>
         <div class="header-container">
@@ -46,5 +47,6 @@ if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script src="js/script.js"></script>
+		<script src="http://vjs.zencdn.net/5.19.0/video.js"></script>
     </body>
 </html>

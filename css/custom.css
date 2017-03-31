@@ -19,3 +19,47 @@
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+.videoVideo, .videoDescription{
+	width: 35vw !important;
+	height: 50vh !important;
+	float: left;
+}
+
+.main-container{
+	padding-top: 5vh;
+}
+
+.videoDescription{
+	margin-left: 5vw;
+	background-color: #f16529;
+	color: white;
+}
+
+.videoDescription p, .videoDescription h2{
+	max-height: 20vh;
+	overflow: hidden;
+	margin: 0;
+}
+
+.videoDescription p{
+	width: 30vw;
+	margin-left: 2.5vw;
+}
+
+.videoDescription h2{
+	width: 32.5vw;
+	padding-bottom: 2vh;
+	padding-left: 2.5vw;
+	padding-top: 2vh;
+	border-top: solid 20px #e44d26;
+}
+
+.videoButtons{
+	width: 8vw;
+	float: left;
+}
+
+.videoButtons:first-child{
+	margin-left: 2.5vw;
+}
