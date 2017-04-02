@@ -25,11 +25,6 @@
 	height: 50vh !important;
 	float: left;
 }
-
-.main-container{
-	padding-top: 5vh;
-}
-
 .videoDescription{
 	margin-left: 5vw;
 	background-color: #f16529;
@@ -55,9 +50,26 @@
 	border-top: solid 20px #e44d26;
 }
 
+.readMoreWrapper{
+	width: 30vw;
+	margin-left: 2.5vw;
+	text-align: center;
+}
+
+.readMoreWrapper h3{
+	margin: 0;
+}
+
 .videoButtons{
 	width: 8vw;
+	height: 5vh;
+	margin-left: 3vw;
 	float: left;
+	color: white;
+	background-color: #e44d26;
+	border: none;
+	border-radius: 50%;
+	
 }
 
 .videoButtons:first-child{
