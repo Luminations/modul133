@@ -1,6 +1,5 @@
 <?php
-include("connection.php");
-$MySql = new Sql($servern, $usern, $pass, $datab);
+$MySql = new Sql("michiboe.mysql.db.hostpoint.ch", "michiboe_modul", "communismwillprevail18121878", "michiboe_modul133");
 Class Sql{
 	 public $servername = "";
 	 public $username = "";
@@ -40,7 +39,7 @@ Class Sql{
 	public function login($username, $password){
 //safe parameters into array for later use
 		$escapeString = [$username, $password];
-//Hand over user input into escape function [Line: ]
+//Hand over user input into escape function
 		$data = $this->escapeString($escapeString);
 //Use escaped user input to check if the entered input matches any entry in the database
 		$result = $this->connection->query("SELECT userid FROM users WHERE username = '" . $data[0] ."' AND passwordhash = '" . md5($data[1]) . "';");
@@ -51,9 +50,45 @@ Class Sql{
 //If there where no matches at all the final variable gets set to 0
 			$value = ["ERROR", "You entered an invalid password or the given user does not exist."];;
 		}
-//Hand the result over to the setSession function [Line: ]
+//Hand the result over to the setSession function
 		$this->setSession($value[0], $value[1]);
 	}
+	
+	
+	
+	
+	
+	
+	public function getMedia($type){
+		$result = $this->connection->query("SELECT * FROM `media` WHERE type='" . $type . "' AND fk_media_users = " . $_SESSION['login'] . " ORDER BY mediaid;");
+		if($result->num_rows > 0){
+			$result = $this->resultToArray($result);
+			$result = json_encode($result);
+		} else {
+//If there where no matches at all the final variable gets set to 0
+			$result = 0;
+		}
+		return $result;
+	}
+	
+	
+	public function resultToArray($result){
+		$rows = array();
+		while($row = $result->fetch_assoc()) {
+			$rows[] = $row;
+		}
+		return $rows;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 //Here all the sessions get set. (YET)
 	private function setSession($session, $value){
