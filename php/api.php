@@ -26,6 +26,10 @@ if(isset($_POST) && !empty($_POST)){
 						break;
 					case "videos":
 						$array = $MySql->getMedia("vid");
+						break;
+					case "images":
+						$array = $MySql->getMedia("img");
+						break;
 				}
 				break;
 		}
