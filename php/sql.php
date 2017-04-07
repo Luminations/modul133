@@ -1,6 +1,5 @@
 <?php
-include("connection.php");
-$MySql = new Sql($servern, $usern, $pass, $datab);
+$MySql = new Sql("michiboe.mysql.db.hostpoint.ch", "michiboe_modul", "communismwillprevail18121878", "michiboe_modul133");
 Class Sql{
 	 public $servername = "";
 	 public $username = "";
