@@ -2,10 +2,11 @@
 session_start();
 include("php/sql.php");
 if(isset($_POST["username"]) && $_POST["username"] !== "" && isset($_POST["password"]) && $_POST["password"] !== "" && isset($_POST["submit"])){
-	$MySql->login($_POST["username"], $_POST["password"]);
+//	$MySql->login($_POST["username"], $_POST["password"]);
+	header("Location: main.php");
 }
 if(isset($_SESSION["login"]) && $_SESSION["login"]){
-	header("Location: main.php");
+ 	header("Location: main.php");
 }
 
 if(isset($_SESSION["ERROR"]) AND $_SESSION["ERROR"] !== ""){
@@ -44,7 +45,7 @@ if(isset($_SESSION["ERROR"]) AND $_SESSION["ERROR"] !== ""){
         <div class="main-container">
             <div class="main wrapper clearfix">
 				<?php if(isset($error) && $error !== ""){echo "<p id='errorMessage'>" . $error . "</p>";} ?>
-                <form action="" id="loginForm" method="POST">
+				<form action="" id="loginForm" method="POST">
 					<label class="formLabel" for="un">Username:</label>
                     <input  class="formInput"type="text" name="username" id="un">
 					<label class="formLabel" for="pw">Password:</label>

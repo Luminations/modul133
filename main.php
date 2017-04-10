@@ -2,7 +2,7 @@
 session_start();
 include("php/sql.php");
 if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
-	header("Location: index.php");
+	//header("Location: index.php");
 }
 
 ?>
@@ -36,6 +36,10 @@ if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
 
         <div class="main-container">
             <div class="main wrapper clearfix">
+
+<img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+    9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />
 
             </div> <!-- #main -->
         </div> <!-- #main-container -->

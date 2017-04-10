@@ -23,7 +23,7 @@ $(".redirect").on("click", function( e ){
 				});
 				break;
 			case "Images":
-				$.ajax({
+				/*$.ajax({
 					type: "POST",
 					url: "php/api.php",
 					data: { "getter":  "images" }
@@ -34,7 +34,46 @@ $(".redirect").on("click", function( e ){
 					data = data.replace("TITLE", jsData[1].name);
 					data = data.replace("DESCRIPTION", jsData[1].description);
 					$(".main").replaceWith(data);
-				});
+				});*/
+				var result =  {
+					images: [
+						{
+							"name": "filename1",
+							"imageType": "image/png",
+							"content": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
+						},
+						{
+							"name": "filename2",
+							"imageType": "image/png",
+							"content": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
+						},
+						{
+							"name": "filename3",
+							"imageType": "image/png",
+							"content": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",
+						}
+						
+    		
+					]
+				}
+				
+				var content = []
+				for(var i = 0; i < result.images.length; i++){
+					var figure = $('<figure>');
+					var image = $('<img width="16" height="16" src="data:' + result.images[i].imageType + ';base64,' + result.images[i].content + '">')
+					var figcaption = $('<figcaption>')
+					figcaption.append(result.images[i].name)
+					
+					figure.append(image)
+					figure.append(figcaption)
+					
+					content.push(figure);
+				}
+				
+				var mainDiv = $('<div class="main">');
+				mainDiv.append(content)
+				
+				$(".main").replaceWith(mainDiv);
 				break;
 		}
 	});
