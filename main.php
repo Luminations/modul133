@@ -46,6 +46,7 @@ if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
             </footer>
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+		<script src="js/cookies.js"></script>
         <script src="js/script.js"></script>
 		<script src="http://vjs.zencdn.net/5.19.0/video.js"></script>
     </body>
