@@ -19,6 +19,7 @@ if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/normalize.min.css">
 		<link rel="stylesheet" href="css/video-js.css">
+		<link rel="stylesheet" href="css/image.css">
     </head>
     <body>
         <div class="header-container">
