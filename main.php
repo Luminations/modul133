@@ -27,7 +27,8 @@ if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
                 <h1 class="title">h1.title</h1>
                 <nav>
                     <ul>
-                        <li><a href="#" class="redirect">Note</a></li>
+                        <li><a href="#" class="redirect">Upload</a></li>
+                        <li><a href="#" class="redirect">Notes</a></li>
                         <li><a href="#" class="redirect">Images</a></li>
                         <li><a href="#" class="redirect">Videos</a></li>
                     </ul>	

@@ -15,68 +15,78 @@
 	width: 100vw;
 }
 
-.buttonWrapper{
-	height: 5vh;
-	width: 100%;
+#goAhead:after{
+	content: '\25b6';
 }
 
-#submit{
-	margin-top: 10px;
-	margin-bottom: 10px;
+#goBack:after{
+	content: '\25C0';
 }
 
-.videoVideo, .videoDescription{
-	width: 35vw !important;
-	height: 50vh !important;
+#goAhead, #goBack{
+	border: none;
+	height:300px;
+}
+
+#goAhead{
+	margin-left: 10px;
+}
+
+#goBack{
+	margin-right: 10px;
+	
+}
+
+
+
+.main{
+	text-align: center;
+}
+
+.center{
+	width: auto;
+	height: auto;
+	display: inline-block;
+}
+
+.float{
 	float: left;
 }
+
 .videoDescription{
-	margin-left: 5vw;
 	background-color: #f16529;
 	color: white;
 }
 
-.videoDescription p, .videoDescription h2{
-	max-height: 20vh;
-	overflow: hidden;
-	margin: 0;
+.videoDescription > h2{
+    margin-top: 0px;
+    border-top: 20px solid #e44d26;
+    padding-top: 20px;
 }
 
 .videoDescription p{
-	width: 30vw;
-	margin-left: 2.5vw;
+    width: 70%;
+    margin-left: 15%;
+}
+.videoDescription, .videoVideo{
+	height: 300px;
+	width: 300px;
 }
 
-.videoDescription h2{
-	width: 32.5vw;
-	padding-bottom: 2vh;
-	padding-left: 2.5vw;
-	padding-top: 2vh;
-	border-top: solid 20px #e44d26;
-}
-
-.readMoreWrapper{
-	width: 30vw;
-	margin-left: 2.5vw;
-	text-align: center;
-}
-
-.readMoreWrapper h3{
-	margin: 0;
-}
-
-.videoButtons{
-	width: 8vw;
-	height: 5vh;
-	margin-left: 3vw;
-	float: left;
-	color: white;
-	background-color: #e44d26;
-	border: none;
-	border-radius: 50%;
+.noteDesc{
+	overflow-y: auto;
+	margin: 5px;
+	width: 290px;	
+	display: inline-block;
 	
 }
 
-.videoButtons:first-child{
-	margin-left: 2.5vw;
+.noteCenter{
+	overflow-y: auto;
+	max-height: 40vh;
+}
+
+.delete{
+	cursor: pointer;
+	text-decoration: underline;
 }

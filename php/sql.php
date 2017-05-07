@@ -71,6 +71,26 @@ Class Sql{
 		return $result;
 	}
 	
+	public function getNotes(){
+		$result = $this->connection->query("SELECT * FROM `notes` WHERE fk_note_users = " . $_SESSION['login'] . " ORDER BY noteid;");
+		if($result->num_rows > 0){
+			$result = $this->resultToArray($result);
+			$result = json_encode($result);
+		} else {
+//If there where no matches at all the final variable gets set to 0
+			$result = 0;
+		}
+		return $result;
+	}
+	
+	public function deleteNote($id){
+		$result = $this->connection->query("DELETE FROM `notes` WHERE fk_note_users = " . $_SESSION['login'] . " AND noteid='" . $id . "';");
+	}
+	
+	public function deleteVideo($id){
+		$result = $this->connection->query("DELETE FROM `media` WHERE fk_note_users = " . $_SESSION['login'] . " AND mediaid='" . $id . "';");
+	}
+	
 	
 	public function resultToArray($result){
 		$rows = array();

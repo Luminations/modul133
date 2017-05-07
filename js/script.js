@@ -31,6 +31,20 @@ $(".redirect").on("click", function( e ){
 					replaceBodyImages(data, jsData, imageCounter);
 				});
 				break;
+			case "Notes":
+				$.ajax({
+					type: "POST",
+					url: "php/api.php",
+					data: { "getter":  "notes" }
+				}).done(function( noteData ){
+					var jsData = $.parseJSON(noteData);
+					var noteCounter = jsData.length;
+					replaceBodyNotes(data, jsData, noteCounter);
+				});
+				break;
+			case "Upload":
+				$(".main").replaceWith(data);
+				break;
 		}
 	});
 })
@@ -40,13 +54,14 @@ function replaceBodyVideos(data, jsData, videoCounter){
 	data = data.replace("DATATYPE", jsData[ videoCounter ].datatype);
 	data = data.replace("TITLE", jsData[ videoCounter ].name);
 	data = data.replace("DESCRIPTION", jsData[ videoCounter ].description);
+	data = data.replace("ID", jsData[ videoCounter ].mediaid);
 	$(".main").replaceWith(data);
 }
 
-function replaceBodyImages(data, jsData, imgCounter){
+function replaceBodyImages(data, jsData, counter){
 	var result = "<div class='main wrapper clearfix'><div class='gallery cf'>";
 	var arg = "";
-	for(i = 0; i < imgCounter; i++){
+	for(i = 0; i < counter; i++){
 		arg = data;
 		arg = arg.replace("PATH", jsData[ i ].path);
 		arg = arg.replace("TITLE", jsData[ i ].name);
@@ -54,5 +69,22 @@ function replaceBodyImages(data, jsData, imgCounter){
 		arg = "";
 	}
 	result += "</div></div>";
+	$(".main").replaceWith(result);
+}
+
+function replaceBodyNotes(data, jsData, counter){
+	var result = "<div class='main wrapper clearfix'><div class='center noteCenter'>";
+	var arg = "";
+	for(i = 0; i < counter; i++){
+		arg = data;
+		arg = arg.replace("CONTENT", jsData[ i ].content);
+		arg = arg.replace("TITLE", jsData[ i ].title);
+		arg = arg.replace("CREATED", jsData[ i ].created);
+		arg = arg.replace("ID", jsData[ i ].noteid);
+		arg = arg.replace("ID", jsData[ i ].noteid);
+		result += arg;
+		arg = "";
+	}
+	result += "</div></div><script src='js/note-action.js'></script>";
 	$(".main").replaceWith(result);
 }

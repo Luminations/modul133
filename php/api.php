@@ -7,17 +7,25 @@ if(isset($_POST) && !empty($_POST)){
 			case "window":
 				$result = file_get_contents(".load/" . strtolower($value) . ".php");
 				break;
-			case "videoAction":
-				switch($value){
-					case "Last":
-						break;
-					case "Delete":
-						
-						break;
-					case "Next":
-						
-						break;
-				}
+			case "manipulate":
+				foreach($value as $action => $param){
+					switch($action){
+						case "deleteNote":
+							$result = $MySql->deleteNote($param);
+							break;
+						case "addNote":
+							
+							break;
+						case "deleteVideo":
+							$result = $MySql->deleteVideo($param);
+							break;
+						case "addVideo":
+							
+							break;
+					}
+				}	
+				
+				
 				break;
 			case "getter":
 				switch($value){
@@ -29,6 +37,9 @@ if(isset($_POST) && !empty($_POST)){
 						break;
 					case "images":
 						$array = $MySql->getMedia("img");
+						break;
+					case "notes":
+						$array = $MySql->getNotes();
 						break;
 				}
 				break;
