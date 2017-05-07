@@ -50,7 +50,6 @@ function replaceBodyImages(data, jsData, imgCounter){
 		arg = data;
 		arg = arg.replace("PATH", jsData[ i ].path);
 		arg = arg.replace("TITLE", jsData[ i ].name);
-		arg = arg.replace("DESCRIPTION", jsData[ i ].description);
 		result += arg;
 		arg = "";
 	}
