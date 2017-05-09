@@ -7,7 +7,11 @@ if(isset($_POST["submit"]) && isset($_POST["username"])
 	&& $_POST["password"] !== "" && $_POST["repeatPassword"] !== "" 
 	&& $_POST["email"] !== ""){
 	if($_POST["password"] == $_POST["repeatPassword"]){
-		$MySql->register($_POST["username"], md5($_POST["password"]), $_POST["email"]);
+		if($MySql->register($_POST["username"], md5($_POST["password"]), $_POST["email"])){
+			header("Location: index.php");
+		} else {
+			$error = "There was an error while registrating your account. Try again later.";
+		}
 	} else {
 		$error = "Passwords do not match";
 	}

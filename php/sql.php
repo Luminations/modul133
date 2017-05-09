@@ -29,10 +29,17 @@ Class Sql{
 			$succ = $this->connection->query("INSERT INTO users(username, passwordhash, email) VALUES ('" . $data[0] . "', '" . $data[1] . "', '" . $data[2] . "')");
 		}
 		if($succ){
-			echo "yo";
+			$a = true;
 		} else{
-			echo "no";
+			$a = false;
 		}
+		return $a;
+	}
+	
+	public function getUsername($uid){
+		$result = $this->connection->query("SELECT username FROM users WHERE userid =" . $uid .";");
+		$result = $this->resultToArray($result);
+		return $result;
 	}
 	
 //User login form: index.php
@@ -54,9 +61,15 @@ Class Sql{
 		$this->setSession($value[0], $value[1]);
 	}
 	
-	
-	
-	
+	public function saveMedia($type, $datatype, $path, $name, $description){
+		$result = $this->connection->query("INSERT INTO `media`(`fk_media_users`, `type`, `datatype`, `path`, `name`, `description`) VALUES ('" . $_SESSION['login'] . "', '" . $type . "', '" . $datatype . "', '" . $path . "', '" . $name . "', '" . $description . "');");
+		if($result){
+			$a = true;
+		} else{
+			$a = false;
+		}
+		return $a;
+	}
 	
 	
 	public function getMedia($type){

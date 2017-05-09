@@ -42,9 +42,6 @@ $(".redirect").on("click", function( e ){
 					replaceBodyNotes(data, jsData, noteCounter);
 				});
 				break;
-			case "Upload":
-				$(".main").replaceWith(data);
-				break;
 		}
 	});
 })

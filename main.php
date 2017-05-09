@@ -24,10 +24,9 @@ if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
     <body>
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h1 class="title">h1.title</h1>
+                <h1 class="title">Wilkommen <?php echo $MySql->getUsername($_SESSION["login"])[0]["username"] ?>.</h1>
                 <nav>
                     <ul>
-                        <li><a href="#" class="redirect">Upload</a></li>
                         <li><a href="#" class="redirect">Notes</a></li>
                         <li><a href="#" class="redirect">Images</a></li>
                         <li><a href="#" class="redirect">Videos</a></li>
@@ -44,7 +43,7 @@ if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
 
         <div class="footer-container">
             <footer class="wrapper">
-                <h3>footer</h3>
+                <a id="upload" href="upload.php" target="_blank"><h3>Upload here</h3></a>
             </footer>
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>

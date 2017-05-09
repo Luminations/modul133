@@ -7,7 +7,7 @@
 	margin: 0 auto;
 	padding: 5px;
 	background: #fff;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .gallery>div {
