@@ -179,6 +179,10 @@ nav a:hover {
 
 @media only screen and (max-width: 480px) {
 	
+	.logout{
+		display: none;
+	}
+	
 	.videoDescription{
 		display: none;
 	}
@@ -214,13 +218,18 @@ nav a:hover {
 		background-size: contain;
 	}
 }
-   
-   
-@media only screen and (min-width: 480px) {
+
 
 /* ====================
     CUSTOM
    ==================== */
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+   .logout{
+	   right: 1vh;
+	   left: auto;
+   }
+   
 	.videoDescription{
 		display: none;
 	}
@@ -232,6 +241,10 @@ nav a:hover {
 	#main-video{
 		width:200px;
 	}
+}
+   
+   
+@media only screen and (min-width: 480px){
 
 /* ====================
     INTERMEDIATE: Menu

@@ -37,7 +37,6 @@ $(".redirect").on("click", function( e ){
 					url: "php/api.php",
 					data: { "getter":  "notes" }
 				}).done(function( noteData ){
-					console.log(noteData);
 					var jsData = $.parseJSON(noteData);
 					var noteCounter = jsData.length;
 					replaceBodyNotes(data, jsData, noteCounter);

@@ -22,7 +22,7 @@ if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
 		<link rel="stylesheet" href="css/image.css">
     </head>
     <body>
-	<button class="logout">logout</button>
+	<button class="logout"></button>
         <div class="header-container">
             <header class="wrapper clearfix">
                 <h1 class="title">Wilkommen <?php echo $MySql->getUsername($_SESSION["login"])[0]["username"] ?>.</h1>
