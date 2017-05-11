@@ -30,7 +30,7 @@ if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
                         <li><a href="#" class="redirect">Notes</a></li>
                         <li><a href="#" class="redirect">Images</a></li>
                         <li><a href="#" class="redirect">Videos</a></li>
-                    </ul>	
+                    </ul>
                 </nav>
             </header>
         </div>
@@ -43,7 +43,7 @@ if(!isset($_SESSION["login"]) OR $_SESSION["login"] == 0){
 
         <div class="footer-container">
             <footer class="wrapper">
-                <a id="upload" href="upload.php" target="_blank"><h3>Upload here</h3></a>
+                <a id="upload" href="upload.php" target="_blank" style="color: #ffffff; text-decoration: none;"><h3>Upload here</h3></a>
             </footer>
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
