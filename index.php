@@ -30,13 +30,13 @@ if(isset($_SESSION["ERROR"]) AND $_SESSION["ERROR"] !== ""){
     <body>
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h1 class="title">h1.title</h1>
+                <h1 class="title">Wilkommen tbz.</h1>
                 <nav>
                     <ul>
-                        <li><a href="#">nav ul li a</a></li>
-                        <li><a href="#">nav ul li a</a></li>
-                        <li><a href="#">nav ul li a</a></li>
-                    </ul>	
+                        <li><a href="#">Notes</a></li>
+                        <li><a href="#">Images</a></li>
+                        <li><a href="#">Videos</a></li>
+                    </ul>
                 </nav>
             </header>
         </div>
@@ -58,7 +58,7 @@ if(isset($_SESSION["ERROR"]) AND $_SESSION["ERROR"] !== ""){
 
         <div class="footer-container">
             <footer class="wrapper">
-                <h3>footer</h3>
+                <h3>© Boetschi, Hamdan, Fraser</h3>
             </footer>
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
