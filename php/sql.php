@@ -96,6 +96,16 @@ Class Sql{
 		return $result;
 	}
 	
+	public function saveNotes($title, $description){
+		$result = $this->connection->query("INSERT INTO `notes`(`fk_note_users`, `title`, `content`) VALUES (" . $_SESSION['login'] . ", '" . $title . "' , '" . $description . "');");
+		if($result){
+			$a = true;
+		} else{
+			$a = false;
+		}
+		return $a;
+	}
+	
 	public function deleteNote($id){
 		$result = $this->connection->query("DELETE FROM `notes` WHERE fk_note_users = " . $_SESSION['login'] . " AND noteid='" . $id . "';");
 	}

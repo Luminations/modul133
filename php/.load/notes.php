@@ -1,4 +1,4 @@
-<span class="videoDescription float noteDesc ID">
+<span class="videoDescription noteDesc ID">
 	<h2 class="noteTitle">TITLE</h2>
 	<p>
 		CONTENT
